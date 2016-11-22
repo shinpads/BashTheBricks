@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>159383553</depth>
+  <depth>12344</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,27 +25,58 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-alarm[0]=10;
+            <string>GoogleMobileAds_Init("ca-app-pub-1745691973689054/5826351420")
+GoogleMobileAds_LoadInterstitial();
+global.bgActual=make_color_rgb(255,170.09,66.3);;
+global.bgNext=c_gray;
+global.txtActual=c_gray;
+global.txtNext=c_gray;
+global.circActual=c_white;
+global.circNext=c_white;
+global.gameOver=false
+alarm[0]=90;
 global.points = 0;
+global.moneyAdd = 1;
+global.moneyMade=0;
 wave=1;
 panelSpeed=5;
-toSpawn=6;
-waveTime=room_speed*20;
+toSpawn=5;
+waveTime=room_speed*15;
 spawnOne=96;
 spawnThree=296;
 spawn=0;
 spawnSpeed=waveTime/toSpawn;
+instance_create(0,0,obj_bgActual);
+instance_create(0,0,obj_bgNext);
+instance_create(40,40,button_pause);
 randomize();
+
+
+ini_open('data.ini');
+global.whiteShape=ini_read_real('store', 'whiteShape',spr_canonBall);
+global.whiteShad=ini_read_real('store', 'whiteShad',spr_canonBallShadow);
+global.blackShape=ini_read_real('store', 'blackShape',spr_canonBall);
+global.blackShad=ini_read_real('store', 'blackShad',spr_canonBallShadow);
+ini_close();
 
 spawnOpt[0]=0 //does not spawn white on right
 spawnOpt[1]=1 //spawns white on left
 spawnOpt[2]=1 //spawns black on right
 spawnOpt[3]=0 //does not spawn black on left
+/*----------------------------------------------*/
 spawnOpt[4,0]=0 //determines if random speed is enabled
 spawnOpt[4,1]=0 //minimum speed
 spawnOpt[4,2]=0 //maximum speed
-spawnOpt[4,3]=0 //frames until it switches
+spawnOpt[4,3]=0//frames until it switches
+/*----------------------------------------------*/
+spawnOpt[5]=0; // probablilty to spawn a red tile
+/*----------------------------------------------*/
+spawnOpt[6,0]=0 //toggle change speed
+spawnOpt[6,1]=0 //min speed
+spawnOpt[6,2]=0 //max speed
+/*----------------------------------------------*/
+spawnOpt[7]=0 // two and once
+/*----------------------------------------------*/
 
 /*
 White on Right
@@ -54,9 +85,6 @@ Black on Right
 Black on Left
 */
 
-ini_open('data.ini');
-global.highScore=ini_read_real('sett','hscore',0);
-ini_close();
 
 </string>
           </argument>
@@ -80,7 +108,25 @@ ini_close();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(toSpawn &gt; 0){
+            <string>if(global.gameOver=false){
+if(toSpawn&gt;=2 &amp;&amp; spawnOpt[7]=1){
+col=choose(0,1)
+spawnBrick(col,1); 
+spawnBrick(col,-1); 
+toSpawn -= 2;
+alarm[0]=spawnSpeed
+}
+else{
+if(toSpawn &gt; 0){
+//red tile
+if(spawnOpt[5]&gt;0 &amp;&amp; random_range(0,100)&lt;spawnOpt[5]){
+var sp = 0;
+if(spawnOpt[0]=1){sp --;}
+if(spawnOpt[1]=1){sp ++;}
+spawnBrick(2,sp);
+}
+else{
+//if not red tile, then choose black or white
 col=choose(0,1);
 if(col=0){
 var sp = 0;
@@ -94,9 +140,13 @@ if(spawnOpt[2]=1){sp --;}
 if(spawnOpt[3]=1){sp ++;}
 spawnBrick(1,sp);
 }
-
+}
 toSpawn -= 1;
 alarm[0]=spawnSpeed
+}
+}
+
+randomize();
 }
 </string>
           </argument>
@@ -120,14 +170,17 @@ alarm[0]=spawnSpeed
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(keyboard_check(vk_space) || device_mouse_check_button_pressed(4,mb_left)){room_restart();}
+            <string>if(keyboard_check(vk_space)){game_restart();}
 if(toSpawn=0){
 wave++;
 toSpawn=-1;
 newWave();
 }
 
-
+/*if(device_mouse_check_button_pressed(4,mb_left)){
+global.money+=1000;
+}
+*/
 </string>
           </argument>
         </arguments>
@@ -153,13 +206,6 @@ newWave();
             <string>draw_set_font(font_main)
 draw_set_halign(fa_center)
 draw_set_valign(fa_bottom)
-draw_sprite_ext(spr_HUD_circle,0,room_width/2,room_height/2,0.5,0.5,0,global.col3,1)
-if(global.points&lt;10){
-draw_text_transformed_colour(room_width/2,room_height/2+55,"0"+string(global.points),1.2,1.2,0,global.col1,global.col1,global.col1,global.col1,1)
-}
-else{
-draw_text_transformed_colour(room_width/2,room_height/2+55,string(global.points),1.2,1.2,0,global.col1,global.col1,global.col1,global.col1,1)
-}
 
 </string>
           </argument>

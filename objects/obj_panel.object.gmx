@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>hit=0;
-
+image_single=random(2)
 
 </string>
           </argument>
@@ -50,14 +50,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(side="left") {
+            <string>if(hit=0){
+if(side="left") {
 hspeed=random_range(obj_control.spawnOpt[4,1],obj_control.spawnOpt[4,2])
 }
 else {
 hspeed=random_range(-obj_control.spawnOpt[4,1],-obj_control.spawnOpt[4,2])
 }
-alarm[0]=obj_control.spawnOpt[4,3]
-
+alarm[0]=obj_control.spawnOpt[4,3];
+}
 </string>
           </argument>
         </arguments>
@@ -81,6 +82,7 @@ alarm[0]=obj_control.spawnOpt[4,3]
           <argument>
             <kind>1</kind>
             <string>if(col=1){sprite_index=spr_panelB}
+if(col=2){sprite_index=spr_panelR}
 </string>
           </argument>
         </arguments>
@@ -117,13 +119,19 @@ instance_destroy();
 }
 if(hit=0){
 if(side="left" &amp;&amp; x&gt;950/2 &amp;&amp; col=0){
-hspeed+=4
+hspeed=19
 }
 if(side="right" &amp;&amp; x&lt;970/2 &amp;&amp; col=1){
-hspeed-=4
+hspeed=-19
+}
+if(side="left" &amp;&amp; x&gt;950/2 &amp;&amp; col=2){
+hspeed=19
+}
+if(side="right" &amp;&amp; x&lt;970/2 &amp;&amp; col=2){
+hspeed=-19
 }
 }
-if(ranSpeed=true) {alarm[0]=1}
+
 </string>
           </argument>
         </arguments>
@@ -146,10 +154,14 @@ if(ranSpeed=true) {alarm[0]=1}
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(hit=0){
-if(side="left" &amp;&amp; x&gt;500){effect_create_below(ef_explosion,x,y,2,c_white); gameend();}
-if(side="right" &amp;&amp; x&lt;500){effect_create_below(ef_explosion,x,y,2,c_white);gameend();}
+            <string>if(hit=0 &amp;&amp; global.gameOver=false){
+if(side="left" &amp;&amp; x&gt;500){if(global.gameOver=false &amp;&amp; col !=2){ gameend(); instance_create(0,0,obj_ad)} instance_destroy();}
+if(side="right" &amp;&amp; x&lt;500){if(global.gameOver=false &amp;&amp; col !=2){ gameend();instance_create(0,0,obj_ad)} instance_destroy();}
+
+if(side="left" &amp;&amp; x&gt;500 &amp;&amp; col=2){global.points++; instance_destroy();}
+if(side="right" &amp;&amp; x&lt;500 &amp;&amp; col=2){global.points++; instance_destroy();}
 }
+
 </string>
           </argument>
         </arguments>

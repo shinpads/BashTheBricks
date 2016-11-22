@@ -48,7 +48,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(col=1){sprite_index=spr_canonBallB}
+            <string>if(hit)
+{
+image_angle++;
+}
 </string>
           </argument>
         </arguments>
@@ -72,27 +75,43 @@
           <argument>
             <kind>1</kind>
             <string>if(hit=false &amp;&amp; other.hit=0){
+if(other.col=2){
+effect_create_below(ef_ring,x,other.y,1,c_red)
+ini_open('data.ini');
+//Uh-Oh
+var uhoh=ini_read_real('achievements','uhoh',0);
+if(global.gamesPlayed&gt;0 &amp;&amp; uhoh=0){
+achievement_post("CgkIstCHjaMBEAIQBg",100);
+ini_write_real('achievements', 'uhoh', 1);
+
+}
+ini_close();
+gameend();
+}
 if(col = other.col){
 if(col=0){
+
 effect_create_below(ef_ring,other.x,other.y,1,c_white)
 }
 else{
+
 effect_create_below(ef_ring,x,other.y,1,c_black)
 }
 global.points++;
 speed=0;
-gravity=0.2
+gravity=0.3
 hit=true;
 if(x&lt;other.x){hspeed=random_range(-1,-1.75)}
 else{hspeed=random_range(1,1.75)}
 other.hit=1;
+if(random(1)&lt;0.6){pay();instance_create(x,y,obj_plusMoney);}
 }
 else{
 hit=true;
 speed=0;
-gravity=0.2
-if(other.side="left"){other.hspeed+=8}
-else{other.hspeed-=8;}
+gravity=0.3
+if(other.side="left"){other.hspeed=19}
+else{other.hspeed=-19;}
 }
 }
 </string>
@@ -140,8 +159,15 @@ else{other.hspeed-=8;}
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite_ext(spr_canonBallShadow,1,x+2,y+2,0.52,0.52,image_angle,-1,1);
-draw_sprite_ext(sprite_index,0,x,y,0.5,0.5,image_angle,-1,1);
+            <string>
+if(col=0){
+draw_sprite_ext(global.whiteShad,1,x+2,y+2,0.52,0.52,image_angle,-1,1);
+draw_sprite_ext(global.whiteShape,0,x,y,0.5,0.5,image_angle,c_white,1);
+}
+else{
+draw_sprite_ext(global.blackShad,1,x+2,y+2,0.52,0.52,image_angle,-1,1);
+draw_sprite_ext(global.blackShape,0,x,y,0.5,0.5,image_angle,c_black,1);
+}
 </string>
           </argument>
         </arguments>

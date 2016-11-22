@@ -27,7 +27,9 @@
             <kind>1</kind>
             <string>canShoot=true;
 long=false;
-fireRate=10;
+fireRate=5;
+start=true;
+y=580
 //752
 </string>
           </argument>
@@ -51,7 +53,7 @@ fireRate=10;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(y&gt;644){
+            <string>if(y&gt;544){
 if(long){
 y-=4;
 }
@@ -106,34 +108,45 @@ long=false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(canShoot=true){
+            <string>if(canShoot=true &amp;&amp; global.gameOver=false &amp;&amp; !collision_point(mouse_x,mouse_y,button_pause,1,-1)){
 if(device_mouse_check_button_pressed(0,mb_left)){
 if(device_mouse_x(0) &lt; ((room_width/2)-10)){
-shoot(0)
+shoot(0);
 canShoot=false;
-if(collision_rectangle(x-14,y,x+14,0,obj_panel,1,-1)){
-if(instance_nearest(x,y,obj_panel).hit=0){
-alarm[0] = fireRate;
+
+
+var rate = 2;
+if(instance_exists(obj_panel)){
+if!(collision_rectangle(x-40,0,x+40,room_height,obj_panel,0,-1)){
+rate = 35;
+}}else{rate=35;}
+alarm[0]=rate
 }
-else{alarm[0] = fireRate * 3; long=true;}
 }
-else{alarm[0] = fireRate * 3; long=true;}
-}
-}
+
 
 else{
 if(device_mouse_check_button_pressed(1,mb_left)){
 if(device_mouse_x(0) &lt; ((room_width/2)-10) || device_mouse_x(1) &lt; ((room_width/2)-10) ){
 shoot(0);
 canShoot=false;
-if(collision_rectangle(x-14,y,x+14,0,obj_panel,1,-1)){
-if(instance_nearest(x,y,obj_panel).hit=0){
-alarm[0] = fireRate;
-}
-else{alarm[0] = fireRate * 3; long=true;}
-}
-else{alarm[0] = fireRate * 3; long=true;}
+var rate = 2;
+if(instance_exists(obj_panel)){
+if!(collision_rectangle(x-40,0,x+40,room_height,obj_panel,0,-1)){
+rate = 35;
+}}else{rate=35;}
+alarm[0]=rate
+
 }}}}
+
+
+if(start &amp;&amp; y&gt;544){
+y-=(4/3);
+}
+if(y&lt;=544 &amp;&amp; start){
+y=544;
+start=false;
+}
 
 
 </string>
@@ -158,8 +171,8 @@ else{alarm[0] = fireRate * 3; long=true;}
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite_ext(spr_canonBallShadow,0,x+3,y+3,0.5,0.5,image_angle,-1,1);
-draw_sprite_ext(sprite_index,1,x,y,0.5,0.5,image_angle,-1,1)
+            <string>draw_sprite_ext(global.whiteShad,0,x+3,y+3,0.5,0.5,image_angle,-1,1);
+draw_sprite_ext(global.whiteShape,1,x,y,0.5,0.5,image_angle,c_white,1)
 </string>
           </argument>
         </arguments>

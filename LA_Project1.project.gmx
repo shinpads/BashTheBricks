@@ -3,21 +3,87 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <NewExtensions/>
-  <sounds name="sound"/>
+  <NewExtensions>
+    <extension index="0">extensions\GoogleMobileAdsExt</extension>
+  </NewExtensions>
+  <sounds name="sound">
+    <sound>sound\music_menu</sound>
+    <sound>sound\music_main</sound>
+    <sound>sound\snd_canonShoot</sound>
+  </sounds>
   <sprites name="sprites">
+    <sprites name="balls">
+      <sprite>sprites\spr_canonBall</sprite>
+      <sprite>sprites\spr_canonBallShadow</sprite>
+      <sprite>sprites\spr_diamond</sprite>
+      <sprite>sprites\spr_diamondShadow</sprite>
+      <sprite>sprites\spr_triangle</sprite>
+      <sprite>sprites\spr_triangleShadow</sprite>
+      <sprite>sprites\spr_star</sprite>
+      <sprite>sprites\spr_starShadow</sprite>
+      <sprite>sprites\spr_pentagon</sprite>
+      <sprite>sprites\spr_pentagonShadow</sprite>
+      <sprite>sprites\spr_square</sprite>
+      <sprite>sprites\spr_squareShadow</sprite>
+      <sprite>sprites\spr_i</sprite>
+      <sprite>sprites\spr_iShadow</sprite>
+      <sprite>sprites\spr_x</sprite>
+      <sprite>sprites\spr_xShadow</sprite>
+      <sprite>sprites\spr_cursor</sprite>
+      <sprite>sprites\spr_cursorShadow</sprite>
+      <sprite>sprites\spr_ring</sprite>
+      <sprite>sprites\spr_ringShadow</sprite>
+      <sprite>sprites\spr_bolt</sprite>
+      <sprite>sprites\spr_boltShadow</sprite>
+      <sprite>sprites\spr_money</sprite>
+      <sprite>sprites\spr_moneyShadow</sprite>
+      <sprite>sprites\spr_target</sprite>
+      <sprite>sprites\spr_targetShadow</sprite>
+      <sprite>sprites\spr_arrow</sprite>
+      <sprite>sprites\spr_arrowShadow</sprite>
+      <sprite>sprites\spr_lemon</sprite>
+      <sprite>sprites\spr_lemonShadow</sprite>
+      <sprite>sprites\spr_spiral</sprite>
+      <sprite>sprites\spr_spiralShadow</sprite>
+      <sprite>sprites\spr_flower</sprite>
+      <sprite>sprites\spr_flowerShadow</sprite>
+      <sprite>sprites\spr_leaf</sprite>
+      <sprite>sprites\spr_leafShadow</sprite>
+    </sprites>
     <sprite>sprites\spr_shad_canon</sprite>
-    <sprite>sprites\spr_canonBall</sprite>
-    <sprite>sprites\spr_canonBallB</sprite>
     <sprite>sprites\spr_panel</sprite>
     <sprite>sprites\spr_panelB</sprite>
+    <sprite>sprites\spr_panelR</sprite>
     <sprite>sprites\spr_tube</sprite>
     <sprite>sprites\spr_HUD_circle</sprite>
-    <sprite>sprites\spr_canonBallShadow</sprite>
+    <sprite>sprites\bgBlank</sprite>
     <sprite>sprites\spr_panelShadow</sprite>
+    <sprite>sprites\spr_buttonPlay</sprite>
+    <sprite>sprites\spr_buttonLeaderBoards</sprite>
+    <sprite>sprites\spr_buttonNoAds</sprite>
+    <sprite>sprites\spr_buttonMute</sprite>
+    <sprite>sprites\spr_buttonShop</sprite>
+    <sprite>sprites\spr_buttonBuyMoney</sprite>
+    <sprite>sprites\spr_buttonAchievements</sprite>
+    <sprite>sprites\spr_buttonBack</sprite>
+    <sprite>sprites\spr_mainTitle</sprite>
+    <sprite>sprites\spr_gameOverScore</sprite>
+    <sprite>sprites\spr_buttonReplay</sprite>
+    <sprite>sprites\spr_button_mainMenu</sprite>
+    <sprite>sprites\spr_buttonRestart</sprite>
+    <sprite>sprites\spr_button_resume</sprite>
+    <sprite>sprites\spr_buttonShare</sprite>
+    <sprite>sprites\spr_buttonLeader</sprite>
+    <sprite>sprites\spr_buttonShop2</sprite>
+    <sprite>sprites\spr_moneyMenu</sprite>
+    <sprite>sprites\spr_buttonPause</sprite>
+    <sprite>sprites\spr_buttonStoreOutline</sprite>
+    <sprite>sprites\spr_buttonStoreFill</sprite>
+    <sprite>sprites\spr_padlock</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
+    <background>background\background1</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -25,12 +91,40 @@
     <script>scripts\gameend.gml</script>
     <script>scripts\newWave.gml</script>
     <script>scripts\spawnBrick.gml</script>
+    <script>scripts\displayAd.gml</script>
+    <script>scripts\pay.gml</script>
+    <script>scripts\checkAch.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_main</font>
+    <font>fonts\font_mainMedium</font>
     <font>fonts\font_mainSmall</font>
+    <font>fonts\font_thin</font>
+    <font>fonts\font_thinBigger</font>
+    <font>fonts\font_thinBiggerMoney</font>
+    <font>fonts\font_title</font>
+    <font>fonts\font_thinThiner</font>
   </fonts>
   <objects name="objects">
+    <objects name="buttons">
+      <object>objects\button_play</object>
+      <object>objects\button_leader</object>
+      <object>objects\button_pause</object>
+      <object>objects\button_achievements</object>
+      <object>objects\button_shop</object>
+      <object>objects\button_IAP</object>
+      <object>objects\button_mute</object>
+      <object>objects\button_noAds</object>
+      <object>objects\button_back</object>
+      <object>objects\button_gameOverScore</object>
+      <object>objects\button_replay</object>
+      <object>objects\button_share</object>
+      <object>objects\button_restart</object>
+      <object>objects\button_mainMenu</object>
+      <object>objects\button_leaderBoards</object>
+      <object>objects\button_shop2</object>
+      <object>objects\startButtons</object>
+    </objects>
     <object>objects\obj_canon</object>
     <object>objects\obj_canonB</object>
     <object>objects\obj_canonBall</object>
@@ -38,13 +132,40 @@
     <object>objects\obj_control</object>
     <object>objects\obj_openScreen</object>
     <object>objects\obj_tube</object>
+    <object>objects\obj_bgActual</object>
+    <object>objects\obj_bgNext</object>
+    <object>objects\obj_menu</object>
+    <object>objects\obj_ad</object>
+    <object>objects\obj_plusMoney</object>
+    <object>objects\obj_IAPinst</object>
+    <object>objects\obj_pause</object>
+    <object>objects\obj_music</object>
+    <object>objects\button_store</object>
+    <object>objects\store_control</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_open</room>
+    <room>rooms\rm_menu</room>
     <room>rooms\rm_main</room>
+    <room>rooms\rm_shop</room>
+    <room>rooms\rm_IAPstore</room>
   </rooms>
-  <constants number="1">
-    <constant name="c_wv2">make_color_hsv(71,83,73)</constant>
+  <constants number="15">
+    <constant name="c_skyBlue">make_color_rgb(0,170,223)</constant>
+    <constant name="c_wave14">c_orange</constant>
+    <constant name="c_wave13">c_purple</constant>
+    <constant name="c_wave12">c_blue</constant>
+    <constant name="c_wave11">c_teal</constant>
+    <constant name="c_wave10">c_green</constant>
+    <constant name="c_wave9">c_yellow</constant>
+    <constant name="c_wave8">c_red</constant>
+    <constant name="c_wave7">c_white</constant>
+    <constant name="c_wave6">c_gray</constant>
+    <constant name="c_wave5">make_color_rgb(186,170,255)</constant>
+    <constant name="c_wave4">make_color_rgb(251,33,100)</constant>
+    <constant name="c_wave3">make_color_rgb(170,255,184)</constant>
+    <constant name="c_wave2">make_color_rgb(255,218,170)</constant>
+    <constant name="c_money">make_color_hsv(85,255,195)</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

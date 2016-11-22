@@ -19,12 +19,12 @@
     <option_android_arch_mipsr2>false</option_android_arch_mipsr2>
     <option_android_arch_mipsr2sf>false</option_android_arch_mipsr2sf>
     <option_android_arch_x86>True</option_android_arch_x86>
-    <option_android_build_version>0</option_android_build_version>
+    <option_android_build_version>46</option_android_build_version>
     <option_android_color_depth>0</option_android_color_depth>
-    <option_android_display_name>Shoot The Bricks</option_android_display_name>
+    <option_android_display_name>Bash The Bricks</option_android_display_name>
     <option_android_google_analytics_enable>false</option_android_google_analytics_enable>
-    <option_android_google_play>0</option_android_google_play>
-    <option_android_google_play_id></option_android_google_play_id>
+    <option_android_google_play>-1</option_android_google_play>
+    <option_android_google_play_id>43782367282</option_android_google_play_id>
     <option_android_google_tracking_id></option_android_google_tracking_id>
     <option_android_iap_suppress_toast>false</option_android_iap_suppress_toast>
     <option_android_icade_support>-1</option_android_icade_support>
@@ -37,7 +37,7 @@
     <option_android_install_location>auto</option_android_install_location>
     <option_android_interpolate>-1</option_android_interpolate>
     <option_android_licensing_enable>0</option_android_licensing_enable>
-    <option_android_licensing_key></option_android_licensing_key>
+    <option_android_licensing_key>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmnk79l+DjeUHr4KWkAlelUZhTDDEQulRDeVD2PDKLwPnzjgp8H2od8CkMTtNX5yZ8tWhn/UE32P9UIDmclsQlyT87YNexAC7Xfx+Twt90qfT6dFQjw3/s5GHEVccRotHin/QHW4M0CtA0RYCTpfUhrJmgTFMqsdrrZ6qImdJbfij/ldSUfNL+p3C372WQcbA6U1iRmq91ZtAPgtxBANj8/6WaTLmy6670WbbqLBZInuDYQU6rp7C3cbMA9QpELc3RowEOJ893R1mh13oIknkwMSbi/hgD8PI14PhLxXAmG/Z3VtOPH9MvsP2xywSA3R11qeesO2d+GqojGjMDSe3EwIDAQAB</option_android_licensing_key>
     <option_android_major_version>1</option_android_major_version>
     <option_android_minor_version>1</option_android_minor_version>
     <option_android_orient_landscape>True</option_android_orient_landscape>
@@ -48,7 +48,7 @@
     <option_android_ouya_icon>Configs\Default\android\icons\ouyaIcon.png</option_android_ouya_icon>
     <option_android_package_company>LemonApps</option_android_package_company>
     <option_android_package_domain>com</option_android_package_domain>
-    <option_android_package_product>StopTheBricks</option_android_package_product>
+    <option_android_package_product>BashTheBricks</option_android_package_product>
     <option_android_permission_flags>8</option_android_permission_flags>
     <option_android_pocketchange_enable>0</option_android_pocketchange_enable>
     <option_android_pocketchange_id></option_android_pocketchange_id>
@@ -56,7 +56,7 @@
     <option_android_push_enable>0</option_android_push_enable>
     <option_android_push_id></option_android_push_id>
     <option_android_scale>-1</option_android_scale>
-    <option_android_set_device_id></option_android_set_device_id>
+    <option_android_set_device_id>1745691973689054</option_android_set_device_id>
     <option_android_splash_png>Configs\Default\android\splash.png</option_android_splash_png>
     <option_android_texture_page>1024</option_android_texture_page>
     <option_android_use_test_ads>-1</option_android_use_test_ads>
@@ -86,7 +86,7 @@
     <option_html5_CreationEventOrder>true</option_html5_CreationEventOrder>
     <option_html5_WebGL>0</option_html5_WebGL>
     <option_html5_advertising_enable>0</option_html5_advertising_enable>
-    <option_html5_advertising_key></option_html5_advertising_key>
+    <option_html5_advertising_key>1745691973689054/5826351420|5|</option_html5_advertising_key>
     <option_html5_advertising_type>Supersonic Ads</option_html5_advertising_type>
     <option_html5_allow_fullscreen>True</option_html5_allow_fullscreen>
     <option_html5_alwaysreload>False</option_html5_alwaysreload>
@@ -114,15 +114,15 @@
     <option_html5_usebuiltinparticles>True</option_html5_usebuiltinparticles>
     <option_html5_usesplash>False</option_html5_usesplash>
     <option_icon>nil</option_icon>
-    <option_in_app_purchase_enable>0</option_in_app_purchase_enable>
+    <option_in_app_purchase_enable>-1</option_in_app_purchase_enable>
     <option_in_app_purchase_sandbox_mode>0</option_in_app_purchase_sandbox_mode>
     <option_in_app_purchase_server_url></option_in_app_purchase_server_url>
     <option_information></option_information>
     <option_interpolate>True</option_interpolate>
     <option_ios_adcolony_enable_V4VC>0</option_ios_adcolony_enable_V4VC>
-    <option_ios_advertising_enable>0</option_ios_advertising_enable>
-    <option_ios_advertising_key></option_ios_advertising_key>
-    <option_ios_advertising_type>iAds</option_ios_advertising_type>
+    <option_ios_advertising_enable>-1</option_ios_advertising_enable>
+    <option_ios_advertising_key>1745691973689054/5826351420|5|</option_ios_advertising_key>
+    <option_ios_advertising_type>Admob</option_ios_advertising_type>
     <option_ios_app_id></option_ios_app_id>
     <option_ios_build_version>0</option_ios_build_version>
     <option_ios_certificate>&lt; Press refresh to fetch certificate list from Mac&gt;</option_ios_certificate>
@@ -160,7 +160,7 @@
     <option_ios_set_device_id></option_ios_set_device_id>
     <option_ios_splash_png>Configs\Default\ios\splash.png</option_ios_splash_png>
     <option_ios_texture_page>1024</option_ios_texture_page>
-    <option_ios_use_test_ads>0</option_ios_use_test_ads>
+    <option_ios_use_test_ads>-1</option_ios_use_test_ads>
     <option_lastchanged></option_lastchanged>
     <option_linux_display_name>LA_Project1</option_linux_display_name>
     <option_linux_enable_steam>0</option_linux_enable_steam>
