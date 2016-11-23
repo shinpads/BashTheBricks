@@ -1,11 +1,12 @@
 alarm[0]=spawnSpeed;
+waveTime=room_speed*15;
 switch(wave){
     case 2:         
         global.bgNext=c_wave2;
         global.txtNext=c_wave2;
         panelSpeed=7; // slightly faster brick speed
         toSpawn=10; // more bricks
-        spawnOpt[5] = 15    // 25% red brick
+        spawnOpt[5] = 15    // 25% red brick        
         break;
         
     case 3:
@@ -48,8 +49,9 @@ switch(wave){
         spawnOpt[1]=1
         spawnOpt[2]=1
         spawnOpt[3]=0
-        panelSpeed=4;
-        toSpawn=5;     
+        panelSpeed=7;
+        toSpawn=10;  
+        waveTime = room_speed*6;   
         break;
                 
      case 7:         
@@ -165,5 +167,5 @@ switch(wave){
         
 }
 global.bgFade=true;
-waveTime=room_speed*15;
+
 spawnSpeed=waveTime/toSpawn

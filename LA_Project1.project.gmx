@@ -160,7 +160,7 @@
     <constant name="c_wave9">c_yellow</constant>
     <constant name="c_wave8">c_red</constant>
     <constant name="c_wave7">c_white</constant>
-    <constant name="c_wave6">c_gray</constant>
+    <constant name="c_wave6">c_purple</constant>
     <constant name="c_wave5">make_color_rgb(186,170,255)</constant>
     <constant name="c_wave4">make_color_rgb(251,33,100)</constant>
     <constant name="c_wave3">make_color_rgb(170,255,184)</constant>
